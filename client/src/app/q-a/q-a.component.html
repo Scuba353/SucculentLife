@@ -1,0 +1,57 @@
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+
+      <div class="col-xs-12 col-sm-9">
+        <div class="jumbotron">
+          <h1 class="pagetitle">Question and Answer</h1>
+          <p>A place to ask questions to community members.  Any questions reguarding how to grow succulents, 
+            problems your succulents are facing, ect. See all the responces on a particular topic by clicking
+            the Responces button or be kind and provide answers to those questions you 
+            have some insite on. 
+          </p>
+        </div>
+        <div class="form">   
+            <form (submit)="addQuestion()">
+              <fieldset class="form-group">
+              <legend>Ask your Question Here!</legend>
+              <div class="form-group">
+                <label for="InputName">Name</label>
+                <input type="text" class="form-control" id="poster" placeholder="Full name" name="newQuestion.poster" [(ngModel)]="newQuestion.poster">
+              </div>
+              <div class="form-group">
+                <label for="InputEmail">Question</label>
+                <input type="text" class="form-control" id="question" aria-describedby="questionHelp" placeholder="Question" name="newQuestion.question" [(ngModel)]="newQuestion.question">
+                <small id="questionHelp" class="form-text text-muted">What are you looking for help with?</small>
+              </div>
+              <button type="submit" class="btn btn-success">Submit</button>
+              </fieldset>
+            </form>
+        </div>
+        <br><br>
+
+        <fieldset>
+          <legend>Check out some questions others have asked!</legend>
+
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6" *ngFor="let x of allquestions">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"> {{x.question}} </h3>
+                  <div class= "panel-body">
+                  <p>Poster: {{x.poster}} </p>
+                  <p><button [routerLink]= "['/answers', x._id]" type= "button" class="btn btn-default">See All Responces</button></p>
+                  <!-- <p><button [routerLink]= "['/responce', x._id]" type= "button" class="btn btn-default">Respond</button></p> -->
+                  <!-- <div><app-responce></app-responce></div> -->
+                </div> 
+             </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </fieldset>
+      </div><!--/.col-xs-12.col-sm-9-->
+    </div>
+  </div>

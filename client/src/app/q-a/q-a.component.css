@@ -1,0 +1,12 @@
+/* @media (min-width: 768px) */
+.col-sm-9 {
+    width: 100%;
+}
+.jumbotron{
+    background:lightgrey;
+    color: white;
+}
+.pagetitle{
+    color: white;
+}
+

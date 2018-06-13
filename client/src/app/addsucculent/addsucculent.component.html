@@ -1,0 +1,89 @@
+<div class="container">
+
+  <div class="row row-offcanvas row-offcanvas-right">
+
+    <div class="col-xs-12 col-sm-9">
+      <div class="jumbotron">
+        <h1>Add a Succulent</h1>
+        <p>Add succulents you have to share</p>
+      </div>
+    
+      <div class="form">   
+        <form (submit)="addnewSucculent()">
+          <fieldset class="form-group">
+          <legend>Information about you!</legend>
+          <div class="form-group">
+            <label for="InputName">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Full name" name="newSucculent.name" [(ngModel)]="newSucculent.name">
+          </div>
+          <div class="form-group">
+            <label for="InputEmail">Email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" name="newSucculent.email" [(ngModel)]="newSucculent.email">
+            <small id="emailHelp" class="form-text text-muted">This is how others will contact you to request this succulent.</small>
+          </div>
+          <div class="form-group">
+              <label for="InputCity">City</label>
+              <input type="text" class="form-control" id="city" aria-describedby="cityHelp" placeholder="City" name="newSucculent.city" [(ngModel)]="newSucculent.city">
+              <small id="cityHelp" class="form-text text-muted">Please provide for reference to determine if friends can pick up locally.</small>
+          </div>
+          <div class="form-group">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" id="mail" name="newSucculent.mail" [(ngModel)]="newSucculent.mail">
+                Check this box if you are willing to ship this cutting?
+              </label>
+          </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend>Information about the plant!</legend>
+            <div class="form-group">
+              <label for="InputColor">Color</label>
+              <input type="text" class="form-control" id="color" aria-describedby="colorHelp" placeholder="Color" name="newSucculent.color" [(ngModel)]="newSucculent.color">
+              <small id="colorHelp" class="form-text text-muted">List the main color(s) of the parent plant.</small>
+            </div>
+            <h5>Is the parent plant a rosette?</h5>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="rosettesoptions" id="rosettes" value="true" name="newSucculent.rosettes" [(ngModel)]="newSucculent.rosettes" checked>
+                Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="rosettesoptions" id="rosettes" value="false" name="newSucculent.rosettes" [(ngModel)]="newSucculent.rosettes">
+                No, but it's still beautiful
+              </label>
+            </div>
+
+            <h5>What type of cutting do you have available?</h5>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="cuttingoptions" id="cutting" value="leaf" checked name="newSucculent.cuttingtype" [(ngModel)]="newSucculent.cuttingtype">
+                Leaf Only
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="cuttingoptions" id="cutting" value="roots" name="newSucculent.cuttingtype" [(ngModel)]="newSucculent.cuttingtype">
+                Some Roots
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="cuttingoptions" id="cutting" value="plant" name="newSucculent.cuttingtype" [(ngModel)]="newSucculent.cuttingtype" >
+                Small Established Plant
+              </label>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="Inputotherdesc">Other Decription</label>
+              <input type="otherdesc" class="form-control" id="otherdesc" aria-describedby="otherdescHelp" placeholder="Description" name="newSucculent.otherdesc" [(ngModel)]="newSucculent.otherdesc">
+              <small id="otherdescHelp" class="form-text text-muted">Add any additional information helpful to describe the plant. </small>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+      </div><!--/form-->
+    </div>
+  </div>
+</div>

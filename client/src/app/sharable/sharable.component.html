@@ -1,0 +1,64 @@
+<div class="container">
+
+  <div class="row row-offcanvas row-offcanvas-right">
+
+    <div class="col-xs-12 col-sm-9">
+      <div class="jumbotron">
+        <h1 class="pagetitle">Chose from Available </h1>
+        <p>Pick succulents you want to collect from others. 
+        </p>
+      </div>
+      <div class="table">
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">City</th>
+              <th scope="col">Will Mail?</th>
+              <th scope="col">Cutting Type</th>
+              <th scope="col">Color</th>
+              <th scope="col">Rosette</th>
+              <th scope="col">Description</th>
+              <th scope="col">Request</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of allplants">
+              <td>{{x.name}}</td>
+              <td>{{x.email}}</td>
+              <td>{{x.city}}</td>
+
+              <div *ngIf="x.mail; then mailYes else mailNo"></div>
+                <ng-template #mailYes><td>Yes</td></ng-template>
+                <ng-template #mailNo><td>No</td></ng-template>
+
+              <ng-container *ngIf="x.cuttingtype == 'leaf'; then leaf else second"></ng-container>
+                <ng-template #leaf><td>Leaf Only</td></ng-template>
+                <ng-template #second>
+                  <ng-container *ngIf="x.cuttingtype == 'roots'; then roots else third"></ng-container>
+                  <ng-template #roots><td>Some Roots</td></ng-template>
+                </ng-template>
+                <ng-template #third><td>Small Established Plant</td></ng-template>
+
+              <td>{{x.plantdescription.color}}</td>
+
+              <div *ngIf="x.plantdescription.rosettes == true; then roseYes else roseNo"></div>
+                <ng-template #roseYes><td>Yes</td></ng-template>
+                <ng-template #roseNo><td>No</td></ng-template>
+
+              <td>{{x.plantdescription.otherdesc}}</td>
+
+              <div *ngIf="x.request; then showbutton else nobutton"></div>
+                <ng-template #nobutton> <td><button [routerLink]= "['/request', x._id]">Request</button></td> </ng-template> 
+                <ng-template #showbutton> <td>This plant has already been claimed!</td> </ng-template>
+                
+
+            </tr>
+          </tbody>
+        </table>
+      </div><!--/table-->
+    </div>
+  </div>
+</div>

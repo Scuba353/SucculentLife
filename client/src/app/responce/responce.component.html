@@ -1,0 +1,17 @@
+<div class="form">   
+    <form (submit)="addResponce()">
+      <fieldset class="form-group">
+      <legend>Add your Responce Here!</legend>
+      <div class="form-group">
+        <label for="InputName">Name</label>
+        <input type="text" class="form-control" id="responder" placeholder="Full name" name="newresponce.responder" [(ngModel)]="newresponce.responder">
+      </div>
+      <div class="form-group">
+        <label for="InputEmail">Responce</label>
+        <input type="text" class="form-control" id="answer" aria-describedby="answerHelp" placeholder="Answer" name="newresponce.answer" [(ngModel)]="newresponce.answer">
+        <small id="questionHelp" class="form-text text-muted">Please respond with relevant information.</small>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+      </fieldset>
+    </form>
+</div>

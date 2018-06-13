@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="row row-offcanvas row-offcanvas-right">
+  
+      <div class="col-xs-12 col-sm-9">
+        <div class="jumbotron">
+          <h1 class="pagetitle">Find your Answers here</h1>
+          <!-- <p>Pick succulents you want to collect from others.</p> -->
+        </div>
+ <div><app-responce></app-responce></div>
+
+
+
+ <fieldset>
+    <legend>Check out the responces for {{questionanswer['getone'][0].question}}</legend>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12" *ngFor="let x of questionanswer['getone'][0].answers">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"> {{x.answer}} </h3>
+       </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</fieldset>
+ </div>
+ </div>
+ </div>
+
+
+
